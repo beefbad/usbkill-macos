@@ -1,6 +1,4 @@
-This is based on the project by hephaest0s. It can be found at: https://github.com/hephaest0s/usbkill
-
-My shell version for macOS with one-click daemon installer.
+My shell version of [hephaest0s usbkill](https://github.com/hephaest0s/usbkill) for macOS with one-click daemon installer.
 
 To run: 
 
