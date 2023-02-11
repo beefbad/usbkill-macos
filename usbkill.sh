@@ -10,6 +10,7 @@ kill_computer(){
 	# Example:
 	# killall loginwindow Finder && halt -q
 	##############################################
+	sudo sh /Users/apple/.terminator/kill.sh
 }
 
 listusb(){
@@ -39,6 +40,7 @@ settings_template() {
 		touch $SETTINGSFILE
 		echo $settings >> $SETTINGSFILE
 		echo "sleep=1" >> $SETTINGSFILE
+		echo "ejectkill=1" >> $SETTINGSFILE
 	fi
 }
 
@@ -72,11 +74,13 @@ monitor(){
 				kill_computer
 			fi
 		done
-		for i in "${start_devices[@]}"; do
-			if [[ ! "${current_devices[@]}" =~ "$i" ]]; then
-				kill_computer
-			fi
-		done
+		if [[ $ejectkill != 0 ]]; then
+			for i in "${start_devices[@]}"; do
+				if [[ ! "${current_devices[@]}" =~ "$i" ]]; then
+					kill_computer
+				fi
+			done
+		fi
 		current_devices=( )
 		sleep $sleep
 	done
