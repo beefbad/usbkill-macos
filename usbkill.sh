@@ -8,10 +8,8 @@ kill_computer(){
 	##############################################
 	# <<! YOUR "KILL-CODE" HERE !>>
 	# Example:
-	# killall loginwindow Finder && halt -q
-	##############################################
-	sudo sh /Users/apple/.terminator/kill.sh
-}
+	killall loginwindow Finder && halt -q
+	##############################################}
 
 listusb(){
 	DEVICES=( $(system_profiler SPUSBDataType 2>/dev/null | grep "Product ID:" | awk '{ print $3 }') )
